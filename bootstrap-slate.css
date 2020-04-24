@@ -2937,16 +2937,7 @@ input[type="button"].btn-block {
     align-items: center;
     justify-content: space-between; }
 
-.navbar-brand {
-  display: inline-block;
-  padding-top: 0.32422rem;
-  padding-bottom: 0.32422rem;
-  margin-right: 1rem;
-  font-size: 1.17188rem;
-  line-height: inherit;
-  white-space: nowrap; }
-  .navbar-brand:hover, .navbar-brand:focus {
-    text-decoration: none; }
+
 
 .navbar-nav {
   display: flex;
