@@ -7,20 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }  
   }
 
+  const trendingGallery = document.getElementById("trending");
+
   function addTrending(trendingArr) {
-    const trendingGallery = document.getElementById("trending");
-    var carouselDiv = document.createElement("div");
+    
+    // var carouselDiv = document.createElement("div");
+    var imgs = []
 
 
     for (let i = 0; i < trendingArr.length; i++) {
       var trendingImg = document.createElement("img");
       // var carouselDiv = document.createElement("div");
-      carouselDiv.className += "carousel-item";
+      // carouselDiv.className += " carousel-item";
+      // d = document.createElement("div")
       g = new GifGallery(trendingArr[i]);
-      trendingImg.src = g.src
-      trendingImg.className = g.className
-      carouselDiv.append(trendingImg);
-      trendingGallery.append(carouselDiv);
+      // trendingImg.src = g.src
+      // trendingImg.className = g.className
+      // d.append(g)
+      imgs.push(g)
+      // carouselDiv.append(trendingImg);
+      // trendingGallery.append(carouselDiv);
          
       // create GIF class
       // trendingImg.src = g.src
@@ -28,14 +34,31 @@ document.addEventListener("DOMContentLoaded", function () {
       // carouselDiv.append(trendingImg);
       // trendingGallery.append(carouselDiv);
     }
+    const c0 = document.getElementById("c0");
+      c0.src = imgs[0].src
+    const c1 = document.getElementById("c1");
+      c1.src = imgs[1].src;
+    const c2 = document.getElementById("c2");
+      c2.src = imgs[2].src;
+    const c3 = document.getElementById("c3");
+      c3.src = imgs[3].src;
+    const c4 = document.getElementById("c4");
+      c4.src = imgs[4].src;
+    // for (image in imgs) {
+    //       var carouselDiv = document.createElement("div");
 
-  };  
+      // carouselDiv.append(imgs[image])
+      // trendingGallery.appendChild(carouselDiv)
+  }
+
+
+
 
  
   async function getTrending() {
     const resT = await axios
       .get(
-        "https://api.giphy.com/v1/gifs/trending?api_key=AFkYNpS3QrPyymUgOlzjhEcxIH04Q3sY&limit=5&rating=G"
+        "https://api.giphy.com/v1/gifs/trending?api_key=AFkYNpS3QrPyymUgOlzjhEcxIH04Q3sY&limit=&rating=G"
       )
       .then(function (response) {
          let respData = response.data.data
