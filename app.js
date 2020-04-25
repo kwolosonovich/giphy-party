@@ -1,79 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+  const trendingGallery = document.getElementById("trending");
   class GifGallery {
-      constructor (trendingURL) {
-        this.src = trendingURL;
-        this.className = "img-thumbnail d-block w-100";  
-      }  
+    constructor(trendingURL) {
+      this.src = trendingURL;
+      this.className = "img-thumbnail d-block w-100";
+    }
   }
 
-  const trendingGallery = document.getElementById("trending");
-
   function addTrending(trendingArr) {
-    
-    // var carouselDiv = document.createElement("div");
-    var imgs = []
-
+    var imgs = [];
 
     for (let i = 0; i < trendingArr.length; i++) {
       var trendingImg = document.createElement("img");
-      // var carouselDiv = document.createElement("div");
-      // carouselDiv.className += " carousel-item";
-      // d = document.createElement("div")
       g = new GifGallery(trendingArr[i]);
-      // trendingImg.src = g.src
-      // trendingImg.className = g.className
-      // d.append(g)
-      imgs.push(g)
-      // carouselDiv.append(trendingImg);
-      // trendingGallery.append(carouselDiv);
-         
-      // create GIF class
-      // trendingImg.src = g.src
-      // trendingImg.className = g.className
-      // carouselDiv.append(trendingImg);
-      // trendingGallery.append(carouselDiv);
+      imgs.push(g);
     }
     const c0 = document.getElementById("c0");
-      c0.src = imgs[0].src
+    c0.src = imgs[0].src;
     const c1 = document.getElementById("c1");
-      c1.src = imgs[1].src;
+    c1.src = imgs[1].src;
     const c2 = document.getElementById("c2");
-      c2.src = imgs[2].src;
+    c2.src = imgs[2].src;
     const c3 = document.getElementById("c3");
-      c3.src = imgs[3].src;
+    c3.src = imgs[3].src;
     const c4 = document.getElementById("c4");
-      c4.src = imgs[4].src;
-    // for (image in imgs) {
-    //       var carouselDiv = document.createElement("div");
-
-      // carouselDiv.append(imgs[image])
-      // trendingGallery.appendChild(carouselDiv)
+    c4.src = imgs[4].src;
   }
 
-
-
-
- 
   async function getTrending() {
     const resT = await axios
       .get(
         "https://api.giphy.com/v1/gifs/trending?api_key=AFkYNpS3QrPyymUgOlzjhEcxIH04Q3sY&limit=&rating=G"
       )
       .then(function (response) {
-         let respData = response.data.data
-         let urlsArr = [];
-         for (let i=0; i < respData.length; i++) {
-           urlsArr.push([respData[i]["images"].downsized.url]);
-         }
-         // create class images and append to carousel
-        addTrending(urlsArr)
+        let respData = response.data.data;
+        let urlsArr = [];
+        for (let i = 0; i < respData.length; i++) {
+          urlsArr.push([respData[i]["images"].downsized.url]);
+        }
+        addTrending(urlsArr);
       });
-
   }
 
   window.onload = getTrending();
-
 
   const newSearch = document.getElementById("search");
   const deleteGifs = document.getElementById("deleteBtn");
@@ -86,11 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     getGif(input);
   });
 
-
   async function getGif(keyword) {
     const api_key = "AFkYNpS3QrPyymUgOlzjhEcxIH04Q3sY";
     const q = `${keyword}`;
-
     const res = await axios
       .get(
         "https://api.giphy.com/v1/gifs/search?api_key=" +
@@ -106,9 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "preview_webp"
           ]["url"]
         );
-      }); 
-    }
-    
+      });
+  }
 
   createNewGif = (gif) => {
     const gifGallery = document.getElementById("gallery");
@@ -120,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.append(gifImg);
     gifGallery.append(newDiv);
   };
-
 
   deleteGifs.addEventListener("click", function (e) {
     e.preventDefault();

@@ -43,43 +43,35 @@
     </div>
   </div>
 
-
-  <div class="container align-items-center">
+  <div class="container-fluid align-items-center">
     <div class="row text-center align-items-center">
-      <div class="col col-md-6">
-        <div class="alert alert-info p-5" role="alert">
-          <h4>Let's get the party started!</h4>
+      <div class="col">
+        <div class="text-alert p-5" role="alert">
+          <h4 class="text-info text-info">Let's get the party started!</h4>
           <i class="fas fa-camera text-right h1"></i>
         </div>
       </div>
-      <div class="col col-md-6">
-        <h5>Top Trending Gifs</h5>
+      <div class="col">
+        <h5 class="text-info">Top Trending Gifs</h5>
 
         <div id="trendingCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-          <!-- <ol class="carousel-indicators">
-            <li data-target="#trendingCarousel" data-slide-to="0" class="active"></li>
-            <li idata-target="#trendingCarousel" data-slide-to="1"></li>
-            <li data-target="#trendingCarousel" data-slide-to="2"></li>
-            <li data-target="#trendingCarousel" data-slide-to="3"></li>
-            <li data-target="#trendingCarousel" data-slide-to="4"></li>
-          </ol> -->
 
-          <div class="carousel-inner" id="trending">
+          <div class="carousel-inner m-auto" style="max-width: 180px" id="trending">
 
             <div class="carousel-item active">
-              <img id="c0" src="" class="w-100" alt="First slide">
+              <img id="c0" src="" class="d-block mh-100 img-thumbnail" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img id="c1" src="" class="d-block w-100" alt="Second slide">
+              <img id="c1" src="" class="d-block mh-100 img-thumbnail" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img id="c2" src="" class="d-block w-100" alt="Third slide">
+              <img id="c2" src="" class="d-block mh-100 img-thumbnail" alt="Third slide">
             </div>
             <div class="carousel-item">
-              <img id="c3" src="" class="d-block w-100" alt="Fourth slide">
+              <img id="c3" src="" class="d-block mh-100 img-thumbnail align-items-center" alt="Fourth slide">
             </div>
             <div class="carousel-item">
-              <img id="c4" src="" class="d-block w-100" alt="Fifth slide">
+              <img id="c4" src="" class="d-block mh-100 img-thumbnail" alt="Fifth slide">
             </div>
           </div>
 
@@ -96,7 +88,6 @@
     </div>
   </div>
   </div>
-
 
   <a name="add-gif"></a>
   <div class="get-gif container-fluid rounded-lg col col-sm-12 col-md-6 bg-success mt-5 mb-5">
@@ -115,17 +106,15 @@
 
   <a name="gallery"></a>
   <div class="container-fluid text-center mt-5 mb-5">
-
     <h1>My Party Gallery</h1>
   </div>
   <hr>
 
   <div class="container border border-info rounded">
-    <div class="row align-items-center height=400px" id="gallery">
+    <div class="row align-items-center" id="gallery">
     </div>
   </div>
   <hr>
-
 
   <div class="container col-sm-4 col-md-3 rounded-lg bg-danger sticky-bottom alert text-center">
     <form action="submit" id="delete-form">
